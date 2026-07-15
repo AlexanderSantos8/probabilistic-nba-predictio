@@ -1,51 +1,57 @@
 # Probabilistic NBA Game Prediction
 
-A mathematical and computational framework developed to analyze NBA game outcomes using probability theory, statistical modeling, Monte Carlo simulations, and machine learning. This project investigates whether data-driven methods can identify predictive patterns in professional basketball performance and improve game outcome forecasting.
+A mathematical and computational framework developed to analyze NBA game outcomes using probability theory, statistical modeling, Monte Carlo simulations, and machine learning.
 
-The project independently implements a complete NBA prediction pipeline, including custom Monte Carlo simulation models, Elo-based rating systems, statistical classifiers, and a feed-forward neural network designed and trained specifically for predicting NBA game outcomes.
+This project investigates whether data-driven methods can identify predictive patterns in professional basketball performance and improve game outcome forecasting.
+
+The project independently implements a complete NBA prediction pipeline, including custom Monte Carlo simulation models, Elo-based rating systems, statistical classifiers, and a feed-forward neural network designed, trained, and evaluated specifically for NBA game prediction.
 
 ---
 
 # Introduction
 
-Predicting professional sports outcomes is a challenging problem due to uncertainty, team variability, injuries, and performance fluctuations. This project explores the following question:
+Predicting professional sports outcomes is a challenging problem due to randomness, injuries, team variability, and changing performance trends.
+
+This project explores the following question:
 
 **Can mathematical modeling and machine learning identify meaningful patterns in NBA game outcomes?**
 
-To investigate this problem, I developed a simulated sports betting environment using a hypothetical $10,000 investment portfolio. The prediction models were evaluated through money-line and over-under predictions across NBA matchups.
+To investigate this problem, I developed a simulated sports betting environment using a hypothetical $10,000 investment portfolio. Each prediction model was evaluated through money-line and over-under predictions across NBA matchups.
 
 The primary prediction objectives were:
 
-- **Money-Line Predictions:** Estimating the probability that a team wins a matchup.
-- **Over-Under Predictions:** Forecasting the expected combined score of both teams.
+- Money-Line Predictions: Estimating the probability that a team wins a matchup.
+- Over-Under Predictions: Forecasting the expected combined score of both teams.
 
 ---
 
 # Modeling Framework and Methodology
 
-The prediction system combines four independently developed models. Each model approaches NBA forecasting from a different mathematical perspective, allowing comparison between probabilistic simulation, traditional statistics, and machine learning methods.
+The prediction system combines four independently developed models. Each model approaches NBA forecasting from a different mathematical perspective, allowing comparison between simulation methods, statistical models, and artificial intelligence approaches.
 
 ---
 
 # 1. Monte Carlo Score Simulation Model
 
-I designed and implemented a Monte Carlo simulation framework to model the randomness of NBA scoring and estimate game outcomes.
+I designed and implemented a Monte Carlo simulation framework to model NBA scoring uncertainty and estimate game outcomes.
 
 Team scores are represented as probabilistic variables:
 
-$$
-Score_{team} \sim N(\mu,\sigma^2)
-$$
+```
+Score_team ~ Normal(μ, σ²)
+```
 
 where:
 
-- $\mu$ represents expected team scoring performance based on historical Points Per Game (PPG).
-- $\sigma$ represents game-to-game scoring variability.
-- Team strength adjustments are incorporated to account for differences in overall performance.
+- μ represents expected team scoring performance based on historical Points Per Game (PPG).
+- σ represents game-to-game scoring variability.
+- Team strength adjustments are included to account for differences in performance.
 
-For each matchup, the simulation generates between:
+For each matchup, the simulation generates:
 
-**50,000 and 100,000 simulated games**
+```
+50,000 - 100,000 simulated games
+```
 
 to estimate:
 
@@ -54,7 +60,7 @@ to estimate:
 - Score distributions
 - Over-under probabilities
 
-This simulation framework was fully developed to quantify uncertainty and model the randomness present in individual NBA games.
+This simulation framework was independently developed to quantify uncertainty and model the randomness present in individual NBA games.
 
 ---
 
@@ -62,57 +68,49 @@ This simulation framework was fully developed to quantify uncertainty and model 
 
 I implemented an adjusted Elo rating system to estimate matchup probabilities based on relative team strength.
 
-The traditional Elo probability model is:
+The traditional Elo probability model:
 
-$$
-P(\text{Team A wins})
-=
-\frac{1}{1+10^{(R_B-R_A)/400}}
-$$
+```
+P(Team A wins) =
+1 / (1 + 10^((R_B - R_A) / 400))
+```
 
 where:
 
-- $R_A$ represents Team A's Elo rating.
-- $R_B$ represents Team B's Elo rating.
+```
+R_A = Team A Elo rating
+R_B = Team B Elo rating
+```
 
 To improve the traditional Elo model, I incorporated offensive strength adjustments:
 
-$$
-P_{win}
-=
-\text{Base Elo Probability}
-\times
-\frac{\text{Offensive Rating}_{team}}
-{\text{Offensive Rating}_{opponent}}
-$$
+```
+P_win =
+Base Elo Probability ×
+(Offensive Rating of Team / Offensive Rating of Opponent)
+```
 
-This adjustment allows the model to account for situations where teams have similar Elo ratings but significantly different offensive capabilities.
+This adjustment allows the model to account for teams with similar Elo ratings but different offensive capabilities.
 
 ---
 
 # 3. Logistic Regression Prediction Model
 
-A supervised learning model was developed using logistic regression to estimate game-winning probabilities based on differences between team statistics.
+I developed a supervised machine learning model using logistic regression to estimate game-winning probabilities.
 
-The model predicts:
+The probability equation:
 
-$$
-P(\text{home win})
-=
-\frac{1}
-{1+e^{-(\beta_0+
-\beta_1\Delta win\_pct+
-\beta_2\Delta pts\_scored+
-\beta_3\Delta pts\_allowed+
-\beta_4\Delta PPG)}}
-$$
+```
+P(home win) =
+1 / (1 + e^-(β0 + β1Δwin_pct + β2Δpts_scored + β3Δpts_allowed + β4ΔPPG))
+```
 
-Input features include:
+The model uses statistical differences between teams, including:
 
-- Difference in win percentage
-- Difference in points scored
-- Difference in points allowed
-- Difference in scoring efficiency
+- Win percentage difference
+- Points scored difference
+- Points allowed difference
+- Scoring efficiency difference
 
 This model provides a statistical baseline for comparison against more complex machine learning approaches.
 
@@ -120,7 +118,7 @@ This model provides a statistical baseline for comparison against more complex m
 
 # 4. Feed-Forward Neural Network Model
 
-I independently designed, implemented, trained, and evaluated a feed-forward neural network to capture complex non-linear relationships between NBA team statistics and game outcomes.
+I independently designed, implemented, trained, and evaluated a feed-forward neural network to capture complex non-linear relationships between NBA statistics and game outcomes.
 
 The neural network architecture was created specifically for this project and includes:
 
@@ -128,7 +126,7 @@ The neural network architecture was created specifically for this project and in
 - ReLU activation functions
 - Adam optimization
 - Adaptive learning rate adjustments
-- Regularization techniques to reduce overfitting
+- Regularization techniques
 - Sigmoid output layer for probability prediction
 
 The neural network learns relationships between:
@@ -136,38 +134,35 @@ The neural network learns relationships between:
 - Offensive production
 - Defensive performance
 - Win percentage
-- Scoring margins
+- Scoring margin
 - Historical team statistics
 
-The hidden-layer calculations are:
+The neural network calculations are represented as:
 
-$$
-h^{(1)} = f(W^{(1)}x+b^{(1)})
-$$
+```
+h(1) = f(W(1)x + b(1))
+```
 
-Additional hidden layers are computed as:
+Additional hidden layers:
 
-$$
-h^{(l)}
-=
-f(W^{(l)}h^{(l-1)}+b^{(l)})
-$$
+```
+h(l) = f(W(l)h(l-1) + b(l))
+```
 
-The final output layer produces the probability of victory:
+Final prediction output:
 
-$$
-P(\text{team win})
-=
-\sigma(W^{(L)}h^{(L-1)}+b^{(L)})
-$$
+```
+P(team win) =
+sigmoid(W(L)h(L-1) + b(L))
+```
 
-The neural network was developed and optimized as part of this project to compare artificial intelligence methods against traditional statistical models.
+The neural network architecture, training process, and evaluation pipeline were fully developed as part of this project to compare artificial intelligence methods against traditional statistical models.
 
 ---
 
 # Predictive Features
 
-The models utilize a combination of historical team performance metrics and statistical variables.
+The models use a combination of historical team performance metrics and statistical variables.
 
 ## Team Performance Metrics
 
@@ -177,7 +172,7 @@ Average point differential between a team and its opponents.
 
 ### Win Percentage
 
-Historical success rate used as an indicator of team strength.
+Historical success rate used as a measure of team strength.
 
 ### Points Per Game (PPG)
 
@@ -208,7 +203,7 @@ Additional features include:
 - Home attendance
 - Draft position information
 
-Teams without draft selections were assigned a value of:
+Teams without draft selections were assigned:
 
 ```
 61
@@ -263,11 +258,11 @@ Technology stack:
 
 | Library | Purpose |
 |---|---|
-| NumPy | Numerical calculations and simulations |
+| NumPy | Numerical computation and simulations |
 | Pandas | Data processing and dataset management |
-| Scikit-learn | Logistic regression and machine learning tools |
-| TensorFlow/Keras | Neural network creation and training |
-| Matplotlib | Visualization and analysis |
+| Scikit-learn | Logistic regression and machine learning models |
+| TensorFlow/Keras | Neural network development and training |
+| Matplotlib | Visualization and statistical analysis |
 
 ---
 
@@ -278,11 +273,11 @@ This project involved the complete development of a mathematical and machine lea
 Major contributions include:
 
 - Designed and implemented Monte Carlo simulations for NBA game outcomes.
-- Created probability models to estimate win and scoring distributions.
+- Created probabilistic scoring models to estimate game uncertainty.
 - Developed an adjusted Elo rating system incorporating offensive strength.
-- Built and trained a custom neural network architecture.
+- Built and trained a custom feed-forward neural network architecture.
 - Created data-processing pipelines for NBA statistical datasets.
-- Compared traditional statistical approaches with machine learning models.
+- Compared statistical models against machine learning approaches.
 - Evaluated predictions using simulated betting strategies.
 
 ---
