@@ -295,3 +295,36 @@ This project demonstrates applications of:
 - Machine learning
 - Sports analytics
 - Data-driven decision making
+
+---
+
+# References
+
+[1] Alloush, M. (2025). *Introduction to Econometrics*. Econ 335. Colorado State University.
+
+[2] Datta, S. (2026, March 1). *NBA Stats (1947–Present)*. Kaggle.  
+https://www.kaggle.com/datasets/sumitrodatta/nba-aba-baa-stats
+
+[3] Keller, K. (n.d.). *Introduction to Regression Analysis in R*. Kayleigh Keller.  
+https://www.kellerbiostat.com/introregression/
+
+[4] Walde, J., Zeileis, A., & Rajnai, V. (2025, September 28). *Data Analytics: Chapter 13 — Linear Regression*.  
+https://discdown.org/dataanalytics/linear-regression.html
+
+[5] Wikimedia Foundation. (2026, February 9). *Mathematics of Bookmaking*. Wikipedia.  
+https://en.wikipedia.org/wiki/Mathematics_of_bookmaking
+
+[6] Wood, R. (2025, July 15). *Sports Science: Statistical Analysis and Prediction Methods*.  
+Sports Analytics Research Publications.
+
+[7] Elo, A. E. (1978). *The Rating of Chessplayers, Past and Present*. Arco Publishing.
+
+[8] Silver, N. (2012). *The Signal and the Noise: Why So Many Predictions Fail — but Some Don't*. Penguin Press.
+
+[9] James, G., Witten, D., Hastie, T., & Tibshirani, R. (2023). *An Introduction to Statistical Learning: With Applications in Python*. Springer.
+
+[10] Goodfellow, I., Bengio, Y., & Courville, A. (2016). *Deep Learning*. MIT Press.
+
+[11] Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.
+
+[12] Glasserman, P. (2004). *Monte Carlo Methods in Financial Engineering*. Springer.
